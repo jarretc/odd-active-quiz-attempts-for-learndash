@@ -1,0 +1,80 @@
+# Copyright (C) 2025 Jarret
+# This file is distributed under the same license as the Active Quiz Attempts for LearnDash plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Active Quiz Attempts for LearnDash 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/odd-active-quiz-attempts-for-learndash\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-05-30T23:38:36+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: odd-active-quiz-attempts-for-learndash\n"
+
+#. Plugin Name of the plugin
+#: odd-active-quiz-attempts-for-learndash.php
+msgid "Active Quiz Attempts for LearnDash"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: odd-active-quiz-attempts-for-learndash.php
+msgid "https://orangedotdevelopment.com/software/wordpress/plugins/active-quiz-attempts-for-learndash/"
+msgstr ""
+
+#. Description of the plugin
+#: odd-active-quiz-attempts-for-learndash.php
+msgid "Displays and allows for the deletion of saved in progress quiz attempts."
+msgstr ""
+
+#. Author of the plugin
+#: odd-active-quiz-attempts-for-learndash.php
+msgid "Jarret"
+msgstr ""
+
+#. Author URI of the plugin
+#: odd-active-quiz-attempts-for-learndash.php
+msgid "https://orangedotdevelopment.com"
+msgstr ""
+
+#: odd-active-quiz-attempts-for-learndash.php:48
+msgid "Active "
+msgstr ""
+
+#: odd-active-quiz-attempts-for-learndash.php:50
+msgid " Attempts"
+msgstr ""
+
+#: odd-active-quiz-attempts-for-learndash.php:54
+#, php-format
+msgid "No active %s attempts found."
+msgstr ""
+
+#: odd-active-quiz-attempts-for-learndash.php:68
+#, php-format
+msgid "No saved %s attempts found!"
+msgstr ""
+
+#: odd-active-quiz-attempts-for-learndash.php:76
+msgid " Started"
+msgstr ""
+
+#: odd-active-quiz-attempts-for-learndash.php:81
+msgid "- Activity ID: "
+msgstr ""
+
+#: odd-active-quiz-attempts-for-learndash.php:82
+msgid "Delete Attempt"
+msgstr ""
+
+#: odd-active-quiz-attempts-for-learndash.php:140
+#, php-format
+msgid "Failed to delete active %s attempt for user ID %d and activity ID %d."
+msgstr ""
+
+#: odd-active-quiz-attempts-for-learndash.php:150
+#, php-format
+msgid "Successfully deleted active %s attempt for user ID %d and activity ID %d."
+msgstr ""
