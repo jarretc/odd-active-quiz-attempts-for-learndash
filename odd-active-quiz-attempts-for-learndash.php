@@ -3,7 +3,7 @@
  * Plugin Name: Active Quiz Attempts for LearnDash
  * Plugin URI: https://orangedotdevelopment.com/software/wordpress/plugins/active-quiz-attempts-for-learndash/
  * Description: Displays and allows for the deletion of saved in progress quiz attempts.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Jarret
  * Author URI: https://orangedotdevelopment.com
  * Text Domain: odd-active-quiz-attempts-for-learndash
@@ -14,7 +14,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-/Users/jarretcade/odd/wp-content/plugins/odd-active-quiz-attemtps-for-learndash
+
 add_action( 'edit_user_profile', 'odd_active_quiz_attempts_display' );
 add_action( 'show_user_profile', 'odd_active_quiz_attempts_display' );
 add_action( 'init', 'odd_active_quiz_attempts_textdomain' );
@@ -119,9 +119,10 @@ function odd_delete_quiz_attempt_script() {
 add_action( 'admin_enqueue_scripts', 'odd_delete_quiz_attempt_script' );
 
 function odd_delete_active_quiz_attempt() {
+    global $wpdb;
 
-    $user_id = (int) $_POST['user_id'];
-    $activity_id = (int) $_POST['activity_id'];
+    $user_id = isset( $_POST['user_id'] ) ? (int) $_POST['user_id'] : 0;
+    $activity_id = isset( $_POST['activity_id'] ) ? (int) $_POST['activity_id'] : 0;
     $nonce = isset( $_POST['attempt_nonce'] ) ? sanitize_text_field( $_POST['attempt_nonce'] ) : '';
 
     if (
@@ -132,16 +133,29 @@ function odd_delete_active_quiz_attempt() {
         wp_send_json_error( 'Invalid request' );
     }
 
-    $deleted = learndash_delete_user_activity( $activity_id );
+	if ( ! empty( $activity_id ) ) {
+		$activity_table = $wpdb->delete(
+			LDLMS_DB::get_table_name( 'user_activity' ),
+			array( 'activity_id' => $activity_id ),
+			array( '%d' )
+		);
 
-    if ( false === $deleted ) {
+		$activity_meta_table = $wpdb->delete(
+			LDLMS_DB::get_table_name( 'user_activity_meta' ),
+			array( 'activity_id' => $activity_id ),
+			array( '%d' )
+		);
+	}
+
+    if ( ! $activity_table && ! $activity_meta_table ) {
         wp_send_json_error(
             sprintf(
                 esc_html__( 'Failed to delete active %s attempt for user ID %d and activity ID %d.', 'odd-active-quiz-attempts-for-learndash' ),
                 LearnDash_Custom_Label::get_label( 'quiz' ),
                 $user_id,
                 $activity_id
-            )
+            ),
+            403
         );
     }
 

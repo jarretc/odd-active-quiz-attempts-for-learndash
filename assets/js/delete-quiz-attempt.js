@@ -8,7 +8,7 @@ jQuery(document).ready(function ($) {
         const nonce = $link.data('odd-attempt-nonce');
 
         $.ajax({
-            url: ajaxurl, // WordPress AJAX URL
+            url: ajaxurl,
             type: 'POST',
             data: {
                 action: 'delete_active_quiz_attempt',
@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
                 alert(response.data);
             },
             error: function (error) {
-                console.error(error);
+                alert(error.responseJSON.data);
             },
         });
     });
