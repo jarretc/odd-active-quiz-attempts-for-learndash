@@ -9,10 +9,6 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Displays and allows for the deletion of saved in progress quiz attempts.
 
-= Contribute and translate =
-
-WooCommerce is developed by Jarret Cade, find the Github repository at [ GitHub Repository](https://github.com/jarretc/odd-active-quiz-attempts-for-learndash?utm_medium=referral&utm_source=wp&utm_campaign=plugin_readme) to find out how you can pitch in.
-
 == Installation ==
 
 = Minimum Requirements =
