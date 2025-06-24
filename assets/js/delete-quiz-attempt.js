@@ -6,6 +6,10 @@ jQuery(document).ready(function ($) {
         const userId = $link.data('odd-user-id');
         const activityID = $link.data('odd-activity-id');
         const nonce = $link.data('odd-attempt-nonce');
+        const verify = confirm( oddActiveQuizAttempts.verify );
+        if (!verify) {
+            return;
+        }
 
         $.ajax({
             url: ajaxurl,

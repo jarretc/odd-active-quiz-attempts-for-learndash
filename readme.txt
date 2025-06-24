@@ -17,6 +17,10 @@ Displays and allows for the deletion of saved in progress quiz attempts.
 
 == Changelog ==
 
+= 1.0.2 2025-06-24 =
+
+* Added verification before removing quiz attempt
+
 = 1.0.1 2025-06-02 =
 
 * Improve activity deletion and error reporting

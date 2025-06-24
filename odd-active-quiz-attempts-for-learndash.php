@@ -3,8 +3,8 @@
  * Plugin Name: Active Quiz Attempts for LearnDash
  * Plugin URI: https://orangedotdevelopment.com/software/wordpress/plugins/active-quiz-attempts-for-learndash/
  * Description: Displays and allows for the deletion of saved in progress quiz attempts.
- * Version: 1.0.1
- * Author: Jarret
+ * Version: 1.0.2
+ * Author: Jarret Cade
  * Author URI: https://orangedotdevelopment.com
  * Text Domain: odd-active-quiz-attempts-for-learndash
  * Domain Path: /languages
@@ -110,9 +110,19 @@ function odd_delete_quiz_attempt_script() {
     wp_enqueue_script(
         'delete-quiz-attempt',
         plugins_url( 'assets/js/delete-quiz-attempt.js', __FILE__ ),
-        array( 'jquery' ),
+        array( 'jquery', 'wp-i18n' ),
         '1.0',
         true
+    );
+    wp_localize_script(
+        'delete-quiz-attempt',
+        'oddActiveQuizAttempts',
+        array(
+            'verify' => sprintf(
+                esc_html__( 'Are you sure you want to delete this active %s attempt?', 'odd-active-quiz-attempts-for-learndash' ),
+                LearnDash_Custom_Label::get_label( 'quiz' )
+            ),
+        )
     );
 
 }
